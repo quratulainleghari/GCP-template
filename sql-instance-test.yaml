@@ -1,36 +1,31 @@
-resources:
-  - name: test-sql-instance9
-    type: sqladmin.v1beta4.instance
-    properties:
-    backendType: SECOND_GEN
-    instanceType: CLOUD_SQL_INSTANCE
-    databaseVersion: MYSQL_5_7
-    region: us-central1
-    zone: us-central1-b
-      
-      settings: 
-      tier: db-n1-standard-1
-      dataDiskSizeGb: 12
-      dataDiskType: PD_SSD
-      storageAutoResize: true
-      locationPreference:
-        zone: {{ properties['zone'] }}
-      activationPolicy: ALWAYS
-      backupConfiguration:
-        enabled: true
-        binaryLogEnabled: true
-        startTime: 11:00
-      databases:
-        - name: testdb
-        - name: testdb
-          charset: utf8mb4
-      users:
-        - name: root
-          password: Ytrewq123@#
-          host: 0.0.0.0/0
-        - name: testdb
-          password: Ytrewq123@#
-      authorizedNetworks:
-        - name: Allowed-IP-for-Connection
-          network: 0.0.0.0/0
-      
+    type:sqladmin.v1beta4.instance
+properties:
+    backendType:SECOND_GEN
+    instanceType:CLOUD_SQL_INSTANCE
+    databaseVersion:MYSQL_5_7
+    region:us-central1
+    zone:us-central1-b 
+settings: 
+    tier:db-n1-standard-1
+    dataDiskSizeGb:12
+    dataDiskType:PD_SSD
+    storageAutoResize:true
+locationPreference:
+    activationPolicy:ALWAYS
+backupConfiguration:
+    enabled:true
+    binaryLogEnabled:true
+    startTime:"11:00"
+databases:
+    - name:testdb
+    - name:testdb
+      charset:utf8mb4
+users:
+    - name:root
+      password:Ytrewq123@#
+      host:0.0.0.0/0
+    - name:testdb
+      password:Ytrewq123@#
+authorizedNetworks:
+    - name: Allowed-IP-for-Connection
+      network: 0.0.0.0/0
