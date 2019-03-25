@@ -1,0 +1,28 @@
+imports:
+  - path: cloudsql.jinja
+
+resources:
+  - name: test-sql-instance8
+    type: cloudsql.jinja
+    properties:
+      region: us-central1
+      zone: us-central1-a
+      dataDiskSizeGb: 15
+      rootpass: Ytrewq123@#
+      machinetype: db-n1-standard-1
+      databases:
+        - name: testdb
+        - name: testdb
+          charset: utf8mb4
+      users:
+        - name: root
+          password: Ytrewq123@#
+          host: "%"
+        - name: testdb
+          password: Ytrewq123@#
+      authorization:
+        - name: Allowed-IP-for-Connection
+          network: 0.0.0.0/0
+       ipConfiguration: 
+    ipv4Enabled: true
+    requireSsl: false
