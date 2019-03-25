@@ -1,4 +1,8 @@
-    type:sqladmin.v1beta4.instance
+imports:
+  - path: cloudsql.jinja
+resources:
+  - name: test-sql-instance8
+    type: cloudsql.jinja   
 properties:
     backendType:SECOND_GEN
     instanceType:CLOUD_SQL_INSTANCE
